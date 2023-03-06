@@ -15,5 +15,11 @@ func main() {
 		})
 	})
 
+	e.GET("/v2/", func(c echo.Context) error {
+		return c.JSON(http.StatusOK, map[string]string{
+			"hello": "world",
+		})
+	})
+
 	e.Logger.Fatal(e.Start("0.0.0.0:8080"))
 }
