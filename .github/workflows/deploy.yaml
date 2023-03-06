@@ -43,10 +43,10 @@ jobs:
         run: |
           aws ecs describe-task-definition --task-definition $TASK_DEFINITION | jq -r '.taskDefinition | del(
             .taskDefinitionArn,
-            .revision
-            .status
-            .requiresAttributes
-            .compatibilities
+            .revision,
+            .status,
+            .requiresAttributes,
+            .compatibilities,
             .registeredAt,
             .registeredBy
           )' > task-definition.json
